@@ -1,0 +1,9 @@
+[vcenterCredentials]
+vcsa.toDeployON.fqdn.com ansible_host=vcsa.toDeployON.fqdn.com ansible_user=user.name ansible_password=yourvCenterPassword validate_certs=no ansible_connection=local ansible_become_pass=VMware1!VMware1! ansible_become=yes ansible_become_method=sudo
+
+[esxi:vars]
+ansible_user=user.name
+ansible_password=yourvCenterPassword
+ansible_connection=local
+validate_certs=no
+ansible_python_interpreter=/usr/bin/python3

@@ -1,0 +1,37 @@
+- hosts: vcenterCredentials
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars:
+    name_iso: VMware-VCSA-all-8.0.2-22385739.iso
+    ansible_become_password: VMware1!VMware1!
+  tasks:
+     - name: Creating a Directory to mount the iso file
+       file:
+         path: /mnt/iso
+         state: directory
+
+     - name: Unmount iso
+       command: umount /mnt/iso
+       ignore_errors: yes
+
+     - name: Mount vCSA8 U2 iso to /mnt/iso directory
+       shell: mount -o loop {{ playbook_dir }}/{{ name_iso }} /mnt/iso
+       args:
+         creates: /mnt/iso/vcsa-cli-installer/lin64/config.json
+
+     - name: Creating a Working Directory
+       become: yes
+       file:
+         path: /vcsa
+         state: directory
+
+     - name: Copying contents to working Directory
+       shell: cp -r /mnt/iso/* /vcsa/
+       args:
+         creates: /vcsa/vcsa-cli-installer/lin64/config.json
+
+     - name: deployment of vcsa
+       shell: ./vcsa-deploy install --no-esx-ssl-verify --accept-eula --acknowledge-ceip --verbose {{ playbook_dir }}/config.json
+       args:
+         chdir: /vcsa/vcsa-cli-installer/lin64/
