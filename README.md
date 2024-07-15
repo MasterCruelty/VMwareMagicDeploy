@@ -28,7 +28,7 @@ sudo mv vmware-ovftool /usr/bin/
 sudo chmod +x /usr/bin/vmware-ovftool/ovftool.bin
 sudo chmod +x /usr/bin/vmware-ovftool/ovftool
 alias ovftool=/usr/bin/vmware-ovftool/ovftool
-sudo dnf install libnsl #dipendenza per ovftool
+sudo dnf install libnsl #dependence of ovftool
 ovftool --version #verify you installed correctly
 ```
 
