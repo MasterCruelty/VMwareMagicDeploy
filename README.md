@@ -6,6 +6,10 @@
 The project's purpose has the objective of create a tool to deploy automatically an entire VMware infrastructure.<br>
 All of this is based on Ansible and PowerShell. I recommend a Linux machine for the vCenter deployment.<br>
 The project is still under development, feel free to contribute in any way.<br>
+Here you can find the vCenter instructions, for the ESXi you can find all the documentation in the other folder called <code>ESXi</code>.<br>
+
+<b>DISCLAIMER</b><br>
+This project is still under studying and development. Only the vCenter side is completely tested. So, take these information as what they are, think and read before execute anything. If you find errors or any way to improve the project, feel free to do it by sending an issue or a pull request.
 
 ## Requirements (vCenter deployment)
 * Ansible
