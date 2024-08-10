@@ -1,1 +1,2 @@
 *.yml linguist-detectable=true
+*.cfg linguist-detectable=true
